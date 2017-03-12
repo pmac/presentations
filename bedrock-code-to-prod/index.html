@@ -63,51 +63,50 @@
         <h2>Deployment</h2>
       </section>
 
-      <section>
-        <h3>Demo Servers</h3>
-        <ul>
-          <li>We have as many as we need</li>
-          <li>Some are pre-defined
-            <ul>
-              <li>e.g. www-demo1.allizom.org</li>
-            </ul>
-          </li>
-          <li>Others are for each developer
-            <ul>
-              <li>e.g. demo-agibson.us-west.moz.works</li>
-            </ul>
-          </li>
-          <li>Still others are named however we want</li>
-        </ul>
+      <section data-markdown>
+        <script type="text/template">
+        ### Demo Servers
+
+        * We have as many as we need
+        * Some are pre-defined
+          * e.g. www-demo1.allizom.org
+          * aids in testing domain-specific things like UITour API
+        * Others are for each developer
+          * e.g. demo-agibson.us-west.moz.works
+        * Still others are named however we want
+        * Any developer with access to push to our Github repository can push to or create a demo</li>
+        </script>
       </section>
 
       <section data-markdown>
-        Any developer with access to push to our Github repository can push to or create a demo.
-      </section>
-
-      <section data-markdown>
+        <script type="text/template">
         ### Dev Server
 
-        Dev refers to `www-dev.allizom.org`
-
-        1. Is updated with every push to `master` branch
+        1. Refers to `www-dev.allizom.org`
+        2. Is updated with every push to `master` branch
           * e.g. a pull-request is merged
-        2. All Feature Switches are `on`
-        3. The [in-development l10n files](https://github.com/mozilla-l10n/www.mozilla.org) are used
+        3. All Feature Switches are `on`
+        4. The [in-development l10n files](https://github.com/mozilla-l10n/www.mozilla.org) are used
+        </script>
       </section>
 
       <section data-markdown>
+        <script type="text/template">
         ### Staging Servers
 
         * Refers to `www.allizom.org`
-        * Updated at the same time as production
+        * Is updated with every push to `prod` branch (same as Production)
+          * as long as said push is tagged e.g. `2017-03-12.1`
+          * we use a script in the repo: `bin/tag-release.sh`
         * Meant as a test of deployment and should always match Production as closely as possible
+        </script>
       </section>
 
       <section data-markdown>
+        <script type="text/template">
         ### Production Servers
 
-        There are several stages to a production deploy:
+        There are [several stages to a production deploy](https://ci.us-west.moz.works/blue/organizations/jenkins/bedrock_multibranch_pipeline/detail/prod/36/pipeline):
 
         1. Test all of the code
         2. Deploy to Staging
@@ -115,6 +114,7 @@
         4. Deploy to Production
         5. Run integration tests against Production
         6. Do steps 2 - 5 again for other server cluster
+        </script>
       </section>
     </section>
 
