@@ -64,19 +64,57 @@
       </section>
 
       <section>
-        <h2>Demo Servers</h2>
+        <h3>Demo Servers</h3>
+        <ul>
+          <li>We have as many as we need</li>
+          <li>Some are pre-defined
+            <ul>
+              <li>e.g. www-demo1.allizom.org</li>
+            </ul>
+          </li>
+          <li>Others are for each developer
+            <ul>
+              <li>e.g. demo-agibson.us-west.moz.works</li>
+            </ul>
+          </li>
+          <li>Still others are named however we want</li>
+        </ul>
       </section>
 
-      <section>
-        <h2>Dev</h2>
+      <section data-markdown>
+        Any developer with access to push to our Github repository can push to or create a demo.
       </section>
 
-      <section>
-        <h2>Staging</h2>
+      <section data-markdown>
+        ### Dev Server
+
+        Dev refers to `www-dev.allizom.org`
+
+        1. Is updated with every push to `master` branch
+          * e.g. a pull-request is merged
+        2. All Feature Switches are `on`
+        3. The [in-development l10n files](https://github.com/mozilla-l10n/www.mozilla.org) are used
       </section>
 
-      <section>
-        <h2>Production</h2>
+      <section data-markdown>
+        ### Staging Servers
+
+        * Refers to `www.allizom.org`
+        * Updated at the same time as production
+        * Meant as a test of deployment and should always match Production as closely as possible
+      </section>
+
+      <section data-markdown>
+        ### Production Servers
+
+        There are several stages to a production deploy:
+
+        1. Test all of the code
+        2. Deploy to Staging
+        3. Run integration tests against Staging
+        4. Deploy to Production
+        5. Run integration tests against Production
+        6. Do steps 2 - 5 again for other server cluster
       </section>
     </section>
 
