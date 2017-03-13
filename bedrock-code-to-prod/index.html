@@ -12,10 +12,10 @@
 
   <link rel="stylesheet" href="../lib/tabzilla/css/tabzilla.css"/>
   <link rel="stylesheet" href="../lib/reveal/css/reveal.css"/>
-  <link rel="stylesheet" href="../lib/reveal/css/theme/mozilla-devrel-dark.css"/>
+  <link rel="stylesheet" href="../lib/reveal/css/theme/mozilla-devrel-light.css"/>
 
   <!-- Theme used for syntax highlighting of code -->
-  <link rel="stylesheet" href="../lib/reveal/lib/css/solarized-dark.css"/>
+  <link rel="stylesheet" href="../lib/reveal/lib/css/solarized-light.css"/>
 
   <!-- Printing and PDF exports -->
   <script>
@@ -182,15 +182,14 @@
   // More info https://github.com/hakimel/reveal.js#configuration
   Reveal.initialize({
     history: true,
-    transition: 'convex',
+    transition: 'slide',
 
     // More info https://github.com/hakimel/reveal.js#dependencies
     dependencies: [
       {src: '../lib/reveal/plugin/markdown/marked.js'},
       {src: '../lib/reveal/plugin/markdown/markdown.js'},
       {src: '../lib/reveal/plugin/notes/notes.js', async: true},
-      {
-        src: '../lib/reveal/plugin/highlight/highlight.js', async: true,
+      {src: '../lib/reveal/plugin/highlight/highlight.js', async: true,
         callback: function () {
           hljs.initHighlightingOnLoad();
         }

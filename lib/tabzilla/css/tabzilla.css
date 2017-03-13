@@ -13,6 +13,8 @@
   position: relative;
   width: 147px;
   z-index: 2;
+  top: 5px;
+  right: 5px;
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
   #tabzilla a {
@@ -20,18 +22,4 @@
     -webkit-background-size: 147px 37px;
     background-size: 147px 37px;
   }
-}
-#tabzilla:before {
-  background-color: transparent;
-  content: '';
-  display: block;
-  height: 26px;
-  left: 28px;
-  position: absolute;
-  top: 0;
-  width: 88px;
-  z-index: 1;
-}
-html[dir='rtl'] #tabzilla {
-  float: left;
 }

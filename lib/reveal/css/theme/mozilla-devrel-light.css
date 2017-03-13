@@ -291,12 +291,6 @@ body {
 /*********************************************
  * MOZILLA THEME OVERRIDES
  *********************************************/
-body {
-  border-top: 2px solid white; }
-
-#tabzilla:before {
-  background-color: #484848; }
-
 .reveal a {
   text-decoration: underline; }
 
