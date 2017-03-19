@@ -53,6 +53,40 @@
 
     <section>
       <section>
+        <h2>Development</h2>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### Base templates
+
+        * [Mobile-first](http://bradfrost.com/blog/web/mobile-first-responsive-web-design/), responsive templates
+        * Localization (l10n) ready
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### Pebbles
+
+        * Lightweight CSS framework
+        * Components, not pages!
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### Other nuggets
+
+        * Firefox download platform detection
+        * Privacy friendly (DNT)
+        * Security focused (CSP)
+        </script>
+      </section>
+    </section>
+
+    <section>
+      <section>
         <h2>Github</h2>
       </section>
     </section>
@@ -60,6 +94,60 @@
     <section>
       <section>
         <h2>L10N</h2>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### Localization (l10n)
+
+        * 99 production locales and counting
+        * English < 50% overall traffic
+        * Translators are mostly volunteers!
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### String changes
+
+        * Only change what's needed
+        * Batch up changes
+        * Lead time of 3-4 weeks.
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### Conditional tags
+
+        ```html
+          <h1>
+            {% if l10n_has_tag('page_heading_update') %}
+              {{ _('Download Firefox today!') }}
+            {% else %}
+              {{ _('Get Firefox today') }}
+            {% endif %}
+          </h1>
+        ```
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### Template switching
+
+        ```python
+          def example_download_page(request):
+            locale = l10n_utils.get_locale(request)
+
+            if lang_file_is_active('firefox/example-page/redesign', locale):
+              template = 'firefox/example-page/redesign.html'
+            else:
+              template = 'firefox/example-page/index.html'
+
+            return l10n_utils.render(request, template)
+        ```
+        </script>
       </section>
     </section>
 
@@ -79,7 +167,7 @@
         * Others are for each developer
           * e.g. demo-agibson.us-west.moz.works
         * Still others are named however we want
-        * Any developer with access to push to our Github repository can push to or create a demo</li>
+        * Any developer with access to push to our Github repository can push to or create a demo
         </script>
       </section>
 
@@ -158,6 +246,40 @@
     <section>
       <section>
         <h2>Analytics</h2>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### [Google Tag Manager](https://www.google.com/analytics/tag-manager/)
+
+        * Implementation respects Do Not Track
+        * Tracking protection fault tollerance
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### Common data attributes
+
+        ```html
+        <a href="https://www.mozilla.org/about/"
+           data-link-type="footer"
+           data-link-name="About">{{ _('About') }}</a>
+        ```
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### Custom events
+
+        ```javascript
+        window.dataLayer.push({
+          'event': 'newsletter-signup-success',
+          'newsletter': newsletter
+        });
+        ```
+        </script>
       </section>
     </section>
 
