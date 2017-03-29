@@ -42,6 +42,15 @@
 
     <section data-markdown>
       <script type="text/template">
+      ## Who?
+
+      * Alex Gibson (@agibson)
+      * Paul McLanahan (@pmac)
+      </script>
+    </section>
+
+    <section data-markdown>
+      <script type="text/template">
       ## Bugzilla
 
       * File a bug in our [Pages & Content component](https://bugzilla.mozilla.org/enter_bug.cgi?product=www.mozilla.org&component=Pages%20%26%20Content)
@@ -58,10 +67,11 @@
 
       <section data-markdown>
         <script type="text/template">
-        ### Base templates
+        ### [Mobile first](http://bradfrost.com/blog/web/mobile-first-responsive-web-design/)
 
-        * [Mobile-first](http://bradfrost.com/blog/web/mobile-first-responsive-web-design/), responsive templates
-        * Localization (l10n) ready
+        * Prioritize the mobile context when creating user experiences.
+        * Reach more people.
+        * Focus on core content and functionality.
         </script>
       </section>
 
@@ -69,25 +79,39 @@
         <script type="text/template">
         ### Pebbles
 
-        * Lightweight CSS framework
+        * Lightweight CSS framework.
         * Components, not pages!
+        * Design systems.
         </script>
       </section>
 
       <section data-markdown>
         <script type="text/template">
-        ### Other nuggets
+        ### Download funnel
 
-        * Firefox download platform detection
-        * Privacy friendly (DNT)
-        * Security focused (CSP)
+        * Firefox download platform detection.
+        * Funnelcake experiments.
+        * Firefox attribution.
         </script>
       </section>
-    </section>
 
-    <section>
-      <section>
-        <h2>Github</h2>
+      <section data-markdown>
+        <script type="text/template">
+        ### Prvacy & Security
+
+        * Privacy friendly (DNT).
+        * Security focused (CSP).
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### Localization (l10n) ready
+
+        * All strings wrapped ready for l10n.
+        * Copy should translate well to other languages.
+        * Designs should embrace fluidity.
+        </script>
       </section>
     </section>
 
@@ -118,6 +142,12 @@
 
       <section data-markdown>
         <script type="text/template">
+        ### How to move fast?
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
         ### Conditional tags
 
         ```html
@@ -137,18 +167,107 @@
         ### Template switching
 
         ```python
-          def example_download_page(request):
-            locale = l10n_utils.get_locale(request)
-
             if lang_file_is_active('firefox/example-page/redesign', locale):
               template = 'firefox/example-page/redesign.html'
             else:
               template = 'firefox/example-page/index.html'
-
-            return l10n_utils.render(request, template)
         ```
         </script>
       </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### Locale specific templating
+
+        ```
+          'firefox/example-page/index.html'
+          'firefox/example-page/index-de.html'
+        ```
+        </script>
+      </section>
+    </section>
+
+    <section>
+      <section data-markdown>
+        <script type="text/template">
+        ## A/B Testing
+
+        * Get real data on how a change affects site usage
+        * We use two primary tools:
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### [Traffic Cop](https://mozilla.github.io/meao/2017/01/16/traffic-cop/)
+
+        * Fast, local
+        * Well tested
+        * Very easy to use, but only for developers
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### [Optimizely](https://www.optimizely.com/)
+
+        * 3rd party hosted
+        * More security risk
+        * More features and flexibility
+        </script>
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <h2>Analytics</h2>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### [Google Tag Manager](https://www.google.com/analytics/tag-manager/)
+
+        * Implementation respects Do Not Track.
+        * Site-wide conventions for tracking interaction.
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### Common data attributes
+
+        ```html
+        <a href="https://www.mozilla.org/about/"
+           data-link-type="footer"
+           data-link-name="About">{{ _('About') }}</a>
+        ```
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ### Custom events
+
+        ```javascript
+        window.dataLayer.push({
+          'event': 'newsletter-signup-success',
+          'newsletter': newsletter
+        });
+        ```
+        </script>
+      </section>
+    </section>
+
+    <section data-markdown>
+      <script type="text/template">
+      ## Feature Switches
+
+      * Need to decide ahead of time what should be switchable
+      * Deploy new features to production before turning them on
+      * Any developer can flip the switch
+      * Changes in production without a full deployment
+      * Much less risky, but not without risk
+      </script>
     </section>
 
     <section>
@@ -211,89 +330,15 @@
       </section>
     </section>
 
-    <section>
-      <section data-markdown>
-        <script type="text/template">
-        ## A/B Testing
-
-        * Get real data on how a change affects site usage
-        * We use two primary tools:
-        </script>
-      </section>
-
-      <section data-markdown>
-        <script type="text/template">
-        ### [Traffic Cop](https://mozilla.github.io/meao/2017/01/16/traffic-cop/)
-
-        * Fast, local
-        * Well tested
-        * Very easy to use, but only for developers
-        </script>
-      </section>
-
-      <section data-markdown>
-        <script type="text/template">
-        ### [Optimizely](https://www.optimizely.com/)
-
-        * 3rd party hosted
-        * More security risk
-        * More features and flexibility
-        </script>
-      </section>
-    </section>
-
-
-    <section>
-      <section>
-        <h2>Analytics</h2>
-      </section>
-
-      <section data-markdown>
-        <script type="text/template">
-        ### [Google Tag Manager](https://www.google.com/analytics/tag-manager/)
-
-        * Implementation respects Do Not Track
-        * Tracking protection fault tollerance
-        </script>
-      </section>
-
-      <section data-markdown>
-        <script type="text/template">
-        ### Common data attributes
-
-        ```html
-        <a href="https://www.mozilla.org/about/"
-           data-link-type="footer"
-           data-link-name="About">{{ _('About') }}</a>
-        ```
-        </script>
-      </section>
-
-      <section data-markdown>
-        <script type="text/template">
-        ### Custom events
-
-        ```javascript
-        window.dataLayer.push({
-          'event': 'newsletter-signup-success',
-          'newsletter': newsletter
-        });
-        ```
-        </script>
-      </section>
-    </section>
-
     <section data-markdown>
       <script type="text/template">
-      ## Feature Switches
+      ## Thanks! (phew)
 
-      * Need to decide ahead of time what should be switchable
-      * Deploy new features to production before turning them on
-      * Any developer can flip the switch
-      * Changes in production without a full deployment
-      * Much less risky, but not without risk
+      * @agibson
+      * @pmac
       </script>
     </section>
+
   </div>
 </div>
 
