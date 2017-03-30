@@ -44,8 +44,8 @@
       <script type="text/template">
       ## Who?
 
-      * Alex Gibson (@agibson)
-      * Paul McLanahan (@pmac)
+      * Alex Gibson ([@agibson](https://mozillians.org/en-US/u/agibson/))
+      * Paul McLanahan ([@pmac](https://mozillians.org/en-US/u/pmac/))
       </script>
     </section>
 
@@ -59,15 +59,33 @@
       </script>
     </section>
 
-    <section data-markdown>
-      <script type="text/template">
-      ## Bugzilla
+    <section>
+      <section data-markdown>
+        <script type="text/template">
+        ## Bugzilla
 
-      * File a bug in our [Pages & Content component](https://bugzilla.mozilla.org/enter_bug.cgi?product=www.mozilla.org&component=Pages%20%26%20Content)
-      * Follow the [bug filing guidelines on MDN](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Bug_writing_guidelines)
-      * File as far in advance as possible!
-        * Helps both development and l10n
-      </script>
+        A place to ask us for things.
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        * File a bug in our [Pages & Content component](https://bugzilla.mozilla.org/enter_bug.cgi?product=www.mozilla.org&component=Pages%20%26%20Content)
+        * Follow the [bug filing guidelines on MDN](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Bug_writing_guidelines)
+        * File as far in advance as possible!
+          * Helps both development and l10n
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Statuses
+
+          * **NEW** or **ASSIGNED**: Conversation and work happening
+          * **RESOLVED: FIXED**: The fix has been merged to `master` and is on the [dev server](#/9/3)
+          * **VERIFIED: FIXED**: The fix has been deployed and is in production
+        </script>
+      </section>
     </section>
 
     <section>
@@ -79,9 +97,9 @@
         <script type="text/template">
         ### [Mobile first](http://bradfrost.com/blog/web/mobile-first-responsive-web-design/)
 
-        * Prioritize the mobile context when creating user experiences.
-        * Reach more people.
-        * Focus on core content and functionality.
+        * Prioritize the mobile context when creating user experiences
+        * Reach more people
+        * Focus on core content and functionality
         </script>
       </section>
 
@@ -89,9 +107,9 @@
         <script type="text/template">
         ### Pebbles
 
-        * Lightweight CSS framework.
+        * Lightweight CSS framework
         * Components, not pages!
-        * Design systems.
+        * Design systems
         </script>
       </section>
 
@@ -99,9 +117,9 @@
         <script type="text/template">
         ### Download funnel
 
-        * Firefox download platform detection.
-        * Funnelcake experiments.
-        * Firefox attribution.
+        * Firefox download platform detection
+        * Funnelcake experiments
+        * Firefox attribution
         </script>
       </section>
 
@@ -109,8 +127,8 @@
         <script type="text/template">
         ### Prvacy & Security
 
-        * Privacy friendly (DNT).
-        * Security focused (CSP).
+        * Privacy friendly (DNT)
+        * Security focused (CSP)
         </script>
       </section>
 
@@ -118,9 +136,9 @@
         <script type="text/template">
         ### Localization (l10n) ready
 
-        * All strings wrapped ready for l10n.
-        * Copy should translate well to other languages.
-        * Designs should embrace fluidity.
+        * All strings wrapped ready for l10n
+        * Copy should translate well to other languages
+        * Designs should embrace fluidity
         </script>
       </section>
     </section>
@@ -146,7 +164,7 @@
 
         * Only change what's needed
         * Batch up changes
-        * Lead time of 3-4 weeks.
+        * Lead time of 3-4 weeks
         </script>
       </section>
 
@@ -160,14 +178,14 @@
         <script type="text/template">
         ### Conditional tags
 
-        ```html
-          <h1>
-            {% if l10n_has_tag('page_heading_update') %}
-              {{ _('Download Firefox today!') }}
-            {% else %}
-              {{ _('Get Firefox today') }}
-            {% endif %}
-          </h1>
+        ```jinja
+        <h1>
+          {% if l10n_has_tag('page_heading_update') %}
+            {{ _('Download Firefox today!') }}
+          {% else %}
+            {{ _('Get Firefox today') }}
+          {% endif %}
+        </h1>
         ```
         </script>
       </section>
@@ -177,10 +195,10 @@
         ### Template switching
 
         ```python
-            if lang_file_is_active('firefox/example-page/redesign', locale):
-              template = 'firefox/example-page/redesign.html'
-            else:
-              template = 'firefox/example-page/index.html'
+        if lang_file_is_active('firefox/example-page/redesign', locale):
+          template = 'firefox/example-page/redesign.html'
+        else:
+          template = 'firefox/example-page/index.html'
         ```
         </script>
       </section>
@@ -189,9 +207,9 @@
         <script type="text/template">
         ### Locale specific templating
 
-        ```
-          'firefox/example-page/index.html'
-          'firefox/example-page/index-de.html'
+        ```python
+        'firefox/example-page/index.html'
+        'firefox/example-page/index-de.html'
         ```
         </script>
       </section>
@@ -246,7 +264,7 @@
         <script type="text/template">
         ### Common data attributes
 
-        ```html
+        ```jinja
         <a href="https://www.mozilla.org/about/"
            data-link-type="footer"
            data-link-name="About">{{ _('About') }}</a>
@@ -273,10 +291,10 @@
       ## Feature Switches
 
       * Need to decide ahead of time what should be switchable
-      * Deploy new features to production before turning them on
+      * Deploy new features before turning them on
       * Any developer can flip the switch
       * Changes in production without a full deployment
-      * Much less risky, but not without risk
+        * Much less risky, but not without risk
       </script>
     </section>
 
@@ -296,19 +314,23 @@
         * Others are for each developer
           * e.g. demo-agibson.us-west.moz.works
         * Still others are named however we want
-        * Any developer with access to push to our Github repository can push to or create a demo
+        * Any developer with access to push to our Github repository can create or update a demo
         </script>
+      </section>
+
+      <section>
+        <h2>Getting to Prod</h2>
       </section>
 
       <section data-markdown>
         <script type="text/template">
         ### Dev Server
 
-        1. Refers to `www-dev.allizom.org`
-        2. Is updated with every push to `master` branch
+        * [www-dev.allizom.org](https://www-dev.allizom.org)
+        * Is updated with every push to `master` branch
           * e.g. a pull-request is merged
-        3. All Feature Switches are `on`
-        4. The [in-development l10n files](https://github.com/mozilla-l10n/www.mozilla.org) are used
+        * All Feature Switches are `on`
+        * The [in-development l10n files](https://github.com/mozilla-l10n/www.mozilla.org) are used
         </script>
       </section>
 
@@ -316,9 +338,9 @@
         <script type="text/template">
         ### Staging Servers
 
-        * Refers to `www.allizom.org`
+        * [www.allizom.org](https://www.allizom.org)
         * Is updated with every push to `prod` branch (same as Production)
-          * as long as said push is tagged e.g. `2017-03-12.1`
+          * as long as said push is tagged (e.g. `2017-03-12.1`)
           * we use a script in the repo: `bin/tag-release.sh`
         * Meant as a test of deployment and should always match Production as closely as possible
         </script>
@@ -344,8 +366,8 @@
       <script type="text/template">
       ## Thanks! (phew)
 
-      * @agibson
-      * @pmac
+      * Alex Gibson ([@agibson](https://mozillians.org/en-US/u/agibson/))
+      * Paul McLanahan ([@pmac](https://mozillians.org/en-US/u/pmac/))
       </script>
     </section>
 
